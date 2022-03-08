@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "subtitle": "#ACCESSORIES",
+        "title": "Buy Covers and aweosme accesories, <br/> enjoy cool things",
+        "url": "/shop/left-sidebar",
+        "bgImage": "/assets/images/hero-slider/hero-slider-seven/1.jpg"
+    },
+    {
+        "id": "2",
+        "subtitle": "GIFTS FOR LOVED ONES",
+        "title": "T-Shirts, PopSockets, <br/> Cups",
+        "url": "/shop/left-sidebar",
+        "bgImage": "/assets/images/hero-slider/hero-slider-seven/2.jpg"
+    }
+]

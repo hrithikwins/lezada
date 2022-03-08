@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "subtitle": "T-SHIRTS",
+        "title": "Best Fitting T-Shirts  <br/>and cool trending",
+        "url": "/shop/left-sidebar",
+        "image": "/assets/images/hero-slider/hero-slider-two/1.png",
+        "bgColor": "#ebf4f2"
+    },
+    {
+        "id": "2",
+        "subtitle": "POP-SOCKETS",
+        "title": "Best Pop Sockets <br/>by Desicovers",
+        "url": "/shop/left-sidebar",
+        "image": "/assets/images/hero-slider/hero-slider-two/2.png",
+        "bgColor": "#f4ede7"
+    },
+    {
+        "id": "3",
+        "subtitle": "MUGS",
+        "title": "Mugs and <br/>cool artistic gifts",
+        "url": "/shop/left-sidebar",
+        "image": "/assets/images/hero-slider/hero-slider-two/3.png",
+        "bgColor": "#ebf4f2"
+    }
+]
