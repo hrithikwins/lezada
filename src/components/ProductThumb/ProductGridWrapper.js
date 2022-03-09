@@ -14,40 +14,28 @@ import {
 } from "../../redux/actions/compareActions";
 import ProductGrid from "./ProductGrid";
 
-const ProductGridWrapper = ({
-    products,
-    bottomSpace,
-    addToCart,
-    addToWishlist,
-    deleteFromWishlist,
-    addToCompare,
-    deleteFromCompare,
-    cartItems,
-    wishlistItems,
-    compareItems,
-    column,
-}) => {
+const ProductGridWrapper = ({ products, bottomSpace }) => {
     const { addToast } = useToasts();
     return (
         <Fragment>
             {products &&
                 products.map((product) => {
-                    const discountedPrice = getDiscountPrice(
-                        product.price,
-                        product.discount
-                    ).toFixed(2);
-                    const productPrice = product.price.toFixed(2);
-                    const cartItem = cartItems.filter(
-                        (cartItem) => cartItem.id === product.id
-                    )[0];
-                    const wishlistItem = wishlistItems.filter(
-                        (wishlistItem) => wishlistItem.id === product.id
-                    )[0];
-                    const compareItem = compareItems.filter(
-                        (compareItem) => compareItem.id === product.id
-                    )[0];
-
-                    return <ProductGrid key={product.id} product={product} />;
+                    // const discountedPrice = getDiscountPrice(
+                    //     product.price,
+                    //     product.discount
+                    // ).toFixed(2);
+                    // const productPrice = product.price.toFixed(2);
+                    // const cartItem = cartItems.filter(
+                    //     (cartItem) => cartItem.id === product.id
+                    // )[0];
+                    // const wishlistItem = wishlistItems.filter(
+                    //     (wishlistItem) => wishlistItem.id === product.id
+                    // )[0];
+                    // const compareItem = compareItems.filter(
+                    //     (compareItem) => compareItem.id === product.idF
+                    // )[0];
+                    return <h1>hii</h1>;
+                    // return <ProductGrid key={product.id} product={product} />;
                 })}
         </Fragment>
     );

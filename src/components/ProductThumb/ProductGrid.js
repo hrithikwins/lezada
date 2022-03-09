@@ -5,7 +5,7 @@ import { IoIosHeartEmpty, IoIosShuffle, IoIosSearch } from "react-icons/io";
 import { Tooltip } from "react-tippy";
 import ProductModal from "./ProductModal";
 
-const ProductGrid = ({ product }) => {
+const ProductGrid = ({ product, bottomSpace }) => {
     const [modalShow, setModalShow] = useState(false);
 
     return (
@@ -231,18 +231,18 @@ const ProductGrid = ({ product }) => {
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 product={product}
-                discountedprice={discountedPrice}
-                productprice={productPrice}
-                cartitems={cartItems}
-                cartitem={cartItem}
-                wishlistitem={wishlistItem}
-                compareitem={compareItem}
-                addtocart={addToCart}
-                addtowishlist={addToWishlist}
-                deletefromwishlist={deleteFromWishlist}
-                addtocompare={addToCompare}
-                deletefromcompare={deleteFromCompare}
-                addtoast={addToast}
+                // discountedprice={discountedPrice}
+                // productprice={productPrice}
+                // cartitems={cartItems}
+                // cartitem={cartItem}
+                // wishlistitem={wishlistItem}
+                // compareitem={compareItem}
+                // addtocart={addToCart}
+                // addtowishlist={addToWishlist}
+                // deletefromwishlist={deleteFromWishlist}
+                // addtocompare={addToCompare}
+                // deletefromcompare={deleteFromCompare}
+                // addtoast={addToast}
             />
         </Fragment>
     );
