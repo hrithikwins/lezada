@@ -19,13 +19,13 @@ const Home = ({ newProducts, popularProducts, saleProducts }) => {
 };
 
 
-const mapStateToProps = (state) => {
-  const products = state.productData;
-  return {
-    newProducts: getProducts(products, "decor", "new", 9),
-    popularProducts: getProducts(products, "decor", "popular", 9),
-    saleProducts: getProducts(products, "decor", "sale", 9)
-  };
-};
+// const mapStateToProps = (state) => {
+//   const products = state.productData;
+//   return {
+//     newProducts: getProducts(products, "decor", "new", 9),
+//     popularProducts: getProducts(products, "decor", "popular", 9),
+//     saleProducts: getProducts(products, "decor", "sale", 9)
+//   };
+// };
 
-export default connect(mapStateToProps)(Home);
+export default Home;

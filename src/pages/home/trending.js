@@ -38,10 +38,10 @@ const Trending = ({ products }) => {
             <div className="products-wrapper space-mb--r100">
                 <Container className="wide">
                     <Row className="five-column">
-                        <ProductGridWrapper
+                        {/* <ProductGridWrapper
                             products={products}
                             bottomSpace="space-mb--r50"
-                        />
+                        /> */}
                     </Row>
                     <div className="text-center">
                         <Link
@@ -68,11 +68,11 @@ const Trending = ({ products }) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    const products = state.productData;
-    return {
-        products: getProducts(products, "fashion", "popular", 10),
-    };
-};
+// const mapStateToProps = (state) => {
+// const products = state.productData;
+// return {
+// products: getProducts(products, "fashion", "popular", 10),
+// };
+// };
 
-export default connect(mapStateToProps)(Trending);
+export default Trending;
