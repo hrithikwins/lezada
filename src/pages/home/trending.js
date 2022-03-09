@@ -32,8 +32,8 @@ const Trending = ({ products }) => {
 
             {/* products */}
             <SectionTitleOne
-                title="Spring summer 2020"
-                subtitle="Find your style. Fall fashion 20xx"
+                title="New Arrivals"
+                subtitle="Find your fav products by Desicovers "
             />
             <div className="products-wrapper space-mb--r100">
                 <Container className="wide">
