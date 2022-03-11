@@ -36,7 +36,7 @@ Trenaind page is the homegpage, hte creative layout to be adddded befoer the 1st
 ```
 the main page is index.js > HOME PAGE @amruta
 
-http://localhost:3000/shop/product-basic/lorem-ipsum-furniture-seven > PROD DETAIL PAGE
+http://localhost:3000/shop/product-basic/lorem-ipsum-Tshirts-seven > PROD DETAIL PAGE
 http://localhost:3000/shop/left-sidebar > LISTING PAGE @shraddha
 http://localhost:3000/shop/fullwidth-no-sidebar > Listing page
 http://localhost:3000/other/order-tracking > order tracking
