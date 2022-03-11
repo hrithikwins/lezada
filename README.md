@@ -33,12 +33,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 Trenaind page is the homegpage, hte creative layout to be adddded befoer the 1st sections [done]
 
-
+```
 the main page is index.js > HOME PAGE @amruta
 
 http://localhost:3000/shop/product-basic/lorem-ipsum-furniture-seven > PROD DETAIL PAGE
 http://localhost:3000/shop/left-sidebar > LISTING PAGE @shraddha
-http://localhost:3000/shop/fullwidth-no-sidebar > Listing page final
+http://localhost:3000/shop/fullwidth-no-sidebar > Listing page
 http://localhost:3000/other/order-tracking > order tracking
 http://localhost:3000/other/my-account > profile page
 
@@ -57,7 +57,7 @@ http://localhost:3000/element/faqs > faq
 SEARCH PAGE HAS NO ACTION //FIXME
 
 
-
+```
 
 
 

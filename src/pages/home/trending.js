@@ -57,7 +57,7 @@ const Trending = ({ products }) => {
                     <Row className="five-column row">
                         {/* <ProductGridFour /> */}
                         {productData.map((data) => (
-                            <Link href="/description">
+                            <Link href="shop/product-basic/lorem-ipsum-furniture-seven">
                                 <div className="element-item col-4">
                                     <div className="ecommerce_product_grid">
                                         <ul className="product_label ul_li clearfix">
@@ -76,56 +76,6 @@ const Trending = ({ products }) => {
                                                     />
                                                 </div>
                                             </div>
-                                            {/* <div id="ptab1_2" className="tab-pane fade">
-                            <div className="item_image">
-                                <img
-                                    src="https://images.pexels.com/photos/4195323/pexels-photo-4195323.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                    alt="image_not_found"
-                                />
-                            </div>
-                        </div>
-                        <div id="ptab1_3" className="tab-pane fade">
-                            <div className="item_image">
-                                <img
-                                    src="https://images.pexels.com/photos/4195323/pexels-photo-4195323.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                    alt="image_not_found"
-                                />
-                            </div>
-                        </div> */}
-                                            {/* <ul className="product_action_btns ul_li_center clearfix">
-                            <li>
-                                <a
-                                    className="tooltips"
-                                    data-placement="top"
-                                    title="Add To Wishlist"
-                                    href="#!"
-                                >
-                                    <i className="fal fa-heart" />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="tooltips"
-                                    data-placement="top"
-                                    title="Add To Cart"
-                                    href="#!"
-                                >
-                                    <i className="fal fa-shopping-basket" />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="tooltips"
-                                    data-placement="top"
-                                    title="Quick View"
-                                    href="#!"
-                                    data-toggle="modal"
-                                    data-target="#quickview_modal"
-                                >
-                                    <i className="fal fa-search" />
-                                </a>
-                            </li>
-                        </ul> */}
                                         </div>
                                         <div className="item_content">
                                             <h3 className="item_title">
@@ -150,8 +100,11 @@ const Trending = ({ products }) => {
                     <div className="text-center">
                         {/* TODO: set the page link */}
                         <Link
-                            href="/shop/left-sidebar"
-                            as={process.env.PUBLIC_URL + "/shop/left-sidebar"}
+                            href="shop/product-basic/lorem-ipsum-furniture-seven"
+                            as={
+                                process.env.PUBLIC_URL +
+                                "shop/product-basic/lorem-ipsum-furniture-seven"
+                            }
                         >
                             <a className="lezada-loadmore-button">
                                 <IoIosAdd /> SEE MORE ...
