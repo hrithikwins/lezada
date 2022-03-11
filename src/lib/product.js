@@ -160,17 +160,17 @@ const getIndividualColorObjectArray = (array) => {
 // get individual categories
 export const getIndividualCategories = (products) => {
     let productCategories = [];
-    productCategories = ["mobile", "popsockets", "tshirts", "covers"];
+    // productCategories = ["mobile", "popsockets", "tshirts", "covers"];
 
-    // products &&
-    //     products.map((product) => {
-    //         return (
-    //             product.category &&
-    //             product.category.map((single) => {
-    //                 return productCategories.push(single);
-    //             })
-    //         );
-    //     });
+    products &&
+        products.map((product) => {
+            return (
+                product.category &&
+                product.category.map((single) => {
+                    return productCategories.push(single);
+                })
+            );
+        });
     const individualProductCategories =
         getIndividualItemArray(productCategories);
     return individualProductCategories;
