@@ -66,7 +66,7 @@ const ProductBasic = ({
                     privateId: "620b5208020c144f2d4bab5b",
                 }
             );
-            setProductData(result.data);
+            setProductData([result.data]);
             console.log(result.data);
         }
         searchProductById();
@@ -113,13 +113,20 @@ const ProductBasic = ({
 
                         <Col lg={6}>
                             {/* demo code start */}
-                            <h1>{productData.productData.name}</h1>
-                            <h1>{productData.productData.category}</h1>
-                            <h1>{productData.productData.model}</h1>
-                            <h1>{productData.productData.image}</h1>
-                            <h1>{productData.productData.modelName}</h1>
-                            <p>{productData.productData.description}</p>
-                            <h1>{productData.productData.price}</h1>
+                            <h1>Product DAta</h1>
+                            <h1>{productData[0]["productData"]["name"]}</h1>
+                            <h1>{productData[0]["productData"]["category"]}</h1>
+                            <h1>{productData[0]["productData"]["model"]}</h1>
+                            <h1>{productData[0]["productData"]["image"]}</h1>
+                            <h1>
+                                {productData[0]["productData"]["modelName"]}
+                            </h1>
+                            <h1>{productData[0]["productData"]["price"]}</h1>
+                            {/* <h1>{productData.category}</h1>
+                            <h1>{productData.model}</h1>
+                            <h1>{productData.image}</h1>
+                            <h1>{productData.modelName}</h1>
+                            <h1>{productData.price}</h1> */}
                             {/* demo code end */}
                             {/* product description */}
                             <ProductDescription
