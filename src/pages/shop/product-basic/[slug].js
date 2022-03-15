@@ -44,7 +44,7 @@ const ProductBasic = ({ product }) => {
     return (
         <LayoutTwo>
             {/* breadcrumb */}
-            {/* <BreadcrumbOne
+            <BreadcrumbOne
                 pageTitle={product.name}
                 backgroundImage="/assets/images/backgrounds/breadcrumb-bg-1.png"
             >
@@ -64,7 +64,7 @@ const ProductBasic = ({ product }) => {
                     </li>
                     <li>{product.name}</li>
                 </ul>
-            </BreadcrumbOne> */}
+            </BreadcrumbOne>
 
             {/* product details */}
             <div className="product-details space-mt--r100 space-mb--r100">
@@ -72,13 +72,7 @@ const ProductBasic = ({ product }) => {
                     <Row>
                         <Col lg={6} className="space-mb-mobile-only--50">
                             {/* image gallery bottom thumb */}
-                            {/* <ImageGalleryBottomThumb
-                                product={product}
-                                wishlistItem={wishlistItem}
-                                addToast={addToast}
-                                addToWishlist={addToWishlist}
-                                deleteFromWishlist={deleteFromWishlist}
-                            /> */}
+                            <ImageGalleryBottomThumb product={product} />
                         </Col>
 
                         <Col lg={6}>

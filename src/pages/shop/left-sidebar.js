@@ -55,77 +55,83 @@ const LeftSidebar = ({ products }) => {
   }, [offset, products, sortType, sortValue, filterSortType, filterSortValue]);
 
   return (
-    <LayoutTwo>
-      {/* breadcrumb */}
-      <BreadcrumbOne
-        pageTitle="Shop Left Sidebar"
-        backgroundImage="/assets/images/backgrounds/breadcrumb-bg-1.png"
-      >
-        <ul className="breadcrumb__list">
-          <li>
-            <Link href="/" as={process.env.PUBLIC_URL + "/"}>
-              <a>Home</a>
-            </Link>
-          </li>
+      <LayoutTwo>
+          {/* breadcrumb */}
+          <BreadcrumbOne
+              pageTitle="All Products from Desicovers"
+              backgroundImage="/assets/images/backgrounds/breadcrumb-bg-1.png"
+          >
+              <ul className="breadcrumb__list">
+                  <li>
+                      <Link href="/" as={process.env.PUBLIC_URL + "/"}>
+                          <a>Home</a>
+                      </Link>
+                  </li>
 
-          <li>Shop Left Sidebar</li>
-        </ul>
-      </BreadcrumbOne>
-      <div className="shop-page-content">
-        {/* shop page header */}
-        <ShopHeader
-          getLayout={getLayout}
-          getFilterSortParams={getFilterSortParams}
-          productCount={products.length}
-          sortedProductCount={currentData.length}
-          shopTopFilterStatus={shopTopFilterStatus}
-          setShopTopFilterStatus={setShopTopFilterStatus}
-        />
+                  <li>Shop Left Sidebar</li>
+              </ul>
+          </BreadcrumbOne>
+          <div className="shop-page-content">
+              {/* shop page header */}
+              <ShopHeader
+                  getLayout={getLayout}
+                  getFilterSortParams={getFilterSortParams}
+                  productCount={products.length}
+                  sortedProductCount={currentData.length}
+                  shopTopFilterStatus={shopTopFilterStatus}
+                  setShopTopFilterStatus={setShopTopFilterStatus}
+              />
 
-        {/* shop header filter */}
-        <SlideDown closed={shopTopFilterStatus ? false : true}>
-          <ShopFilter products={products} getSortParams={getSortParams} />
-        </SlideDown>
-
-        {/* shop page body */}
-        <div className="shop-page-content__body space-mt--r130 space-mb--r130">
-          <Container>
-            <Row>
-              <Col
-                lg={3}
-                className="order-2 order-lg-1 space-mt-mobile-only--50"
-              >
-                {/* shop sidebar */}
-                <ShopSidebar
-                  products={products}
-                  getSortParams={getSortParams}
-                />
-              </Col>
-
-              <Col lg={9} className="order-1 order-lg-2">
-                {/* shop products */}
-                <ShopProducts layout={layout} products={currentData} />
-
-                {/* shop product pagination */}
-                <div className="pro-pagination-style">
-                  <Paginator
-                    totalRecords={sortedProducts.length}
-                    pageLimit={pageLimit}
-                    pageNeighbours={2}
-                    setOffset={setOffset}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    pageContainerClass="mb-0 mt-0"
-                    pagePrevText="«"
-                    pageNextText="»"
+              {/* shop header filter */}
+              <SlideDown closed={shopTopFilterStatus ? false : true}>
+                  <ShopFilter
+                      products={products}
+                      getSortParams={getSortParams}
                   />
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </div>
-    </LayoutTwo>
+              </SlideDown>
+
+              {/* shop page body */}
+              <div className="shop-page-content__body space-mt--r130 space-mb--r130">
+                  <Container>
+                      <Row>
+                          <Col
+                              lg={3}
+                              className="order-2 order-lg-1 space-mt-mobile-only--50"
+                          >
+                              {/* shop sidebar */}
+                              <ShopSidebar
+                                  products={products}
+                                  getSortParams={getSortParams}
+                              />
+                          </Col>
+
+                          <Col lg={9} className="order-1 order-lg-2">
+                              {/* shop products */}
+                              <ShopProducts
+                                  layout={layout}
+                                  products={currentData}
+                              />
+
+                              {/* shop product pagination */}
+                              <div className="pro-pagination-style">
+                                  <Paginator
+                                      totalRecords={sortedProducts.length}
+                                      pageLimit={pageLimit}
+                                      pageNeighbours={2}
+                                      setOffset={setOffset}
+                                      currentPage={currentPage}
+                                      setCurrentPage={setCurrentPage}
+                                      pageContainerClass="mb-0 mt-0"
+                                      pagePrevText="«"
+                                      pageNextText="»"
+                                  />
+                              </div>
+                          </Col>
+                      </Row>
+                  </Container>
+              </div>
+          </div>
+      </LayoutTwo>
   );
 };
 

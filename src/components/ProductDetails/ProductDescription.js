@@ -20,17 +20,16 @@ const ProductDescription = ({
     //   addToCompare,
     //   deleteFromCompare
 }) => {
-    //   const [selectedProductColor, setSelectedProductColor] = useState(
+    //   const [selectedProductColor, setSelectedPrgetProductCartQuantitygetProductCartQuantityoductColor] = useState(
     //     product.variation ? product.variation[0].color : ""
     //   );
     //   const [selectedProductSize, setSelectedProductSize] = useState(
     //     product.variation ? product.variation[0].size[0].name : ""
     //   );
-    //   const [productStock, setProductStock] = useState(
-    //     product.variation ? product.variation[0].size[0].stock : product.stock
-    //   );
-    //   const [quantityCount, setQuantityCount] = useState(1);
+    const [productStock, setProductStock] = useState(0);
+    const [quantityCount, setQuantityCount] = useState(1);
 
+    const productCartQty = useState(10);
     //   const productCartQty = getProductCartQuantity(
     //     cartItems,
     //     product,
@@ -62,16 +61,16 @@ const ProductDescription = ({
                 {product.discount > 0 ? (
                     <Fragment>
                         <span className="main-price discounted">
-                            ${productPrice}
+                            ${product.price}
                         </span>
-                        <span className="main-price">${discountedPrice}</span>
+                        <span className="main-price">${product.price}</span>
                     </Fragment>
                 ) : (
-                    <span className="main-price">${productPrice} </span>
+                    <span className="main-price">${product.price} </span>
                 )}
             </div>
             <div className="product-content__description space-mb--30">
-                <p>{product.shortDescription}</p>
+                <p>{product.description}</p>
             </div>
 
             {product.variation ? (
@@ -211,12 +210,7 @@ const ProductDescription = ({
                             />
                             <button
                                 onClick={() =>
-                                    setQuantityCount(
-                                        quantityCount <
-                                            productStock - productCartQty
-                                            ? quantityCount + 1
-                                            : quantityCount
-                                    )
+                                    setQuantityCount(() => quantityCount + 1)
                                 }
                                 className="qtybutton"
                             >
@@ -225,7 +219,7 @@ const ProductDescription = ({
                         </div>
                     </div>
 
-                    <div className="product-content__button-wrapper d-flex align-items-center">
+                    {/* <div className="product-content__button-wrapper d-flex align-items-center">
                         {productStock && productStock > 0 ? (
                             <button
                                 onClick={() =>
@@ -287,7 +281,7 @@ const ProductDescription = ({
                         >
                             <IoIosShuffle />
                         </button>
-                    </div>
+                    </div> */}
 
                     <div className="product-content__other-info space-mt--50">
                         <table>
