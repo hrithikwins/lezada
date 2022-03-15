@@ -23,58 +23,28 @@ import {
 import products from "../../../data/products.json";
 import axios from "axios";
 
-const ProductBasic = ({
-    product,
-    cartItems,
-    wishlistItems,
-    compareItems,
-    addToCart,
-    addToWishlist,
-    deleteFromWishlist,
-    addToCompare,
-    deleteFromCompare,
-}) => {
-    useEffect(() => {
-        document.querySelector("body").classList.remove("overflow-hidden");
-    });
+const ProductBasic = ({ product }) => {
+    // const [productData, setProductData] = useState([]);
 
-    const { addToast } = useToasts();
-    const discountedPrice = getDiscountPrice(
-        product.price,
-        product.discount
-    ).toFixed(2);
-
-    const productPrice = product.price.toFixed(2);
-    const cartItem = cartItems.filter(
-        (cartItem) => cartItem.id === product.id
-    )[0];
-    const wishlistItem = wishlistItems.filter(
-        (wishlistItem) => wishlistItem.id === product.id
-    )[0];
-    const compareItem = compareItems.filter(
-        (compareItem) => compareItem.id === product.id
-    )[0];
-    //--------------------- fetching data from here
-
-    const [productData, setProductData] = useState([]);
-
-    useEffect(() => {
-        async function searchProductById() {
-            const result = await axios.post(
-                "https://desicover.herokuapp.com/search-product-by-id",
-                {
-                    privateId: "620b5208020c144f2d4bab5b",
-                }
-            );
-            setProductData([result.data]);
-            console.log(result.data);
-        }
-        searchProductById();
-    }, []);
+    // useEffect(() => {
+    //     async function searchProductById() {
+    //         const result = await axios.post(
+    //             "https://desicover.herokuapp.com/search-product-by-id",
+    //             {
+    //                 // privateId: "620b5208020c144f2d4bab5b",
+    //                 privateId: slug,
+    //             }
+    //         );
+    //         console.log("Usefevet" + slug);
+    //         setProductData([result.data]);
+    //         console.log(result.data);
+    //     }
+    //     searchProductById();
+    // }, []);
     return (
         <LayoutTwo>
             {/* breadcrumb */}
-            <BreadcrumbOne
+            {/* <BreadcrumbOne
                 pageTitle={product.name}
                 backgroundImage="/assets/images/backgrounds/breadcrumb-bg-1.png"
             >
@@ -94,7 +64,7 @@ const ProductBasic = ({
                     </li>
                     <li>{product.name}</li>
                 </ul>
-            </BreadcrumbOne>
+            </BreadcrumbOne> */}
 
             {/* product details */}
             <div className="product-details space-mt--r100 space-mb--r100">
@@ -102,36 +72,31 @@ const ProductBasic = ({
                     <Row>
                         <Col lg={6} className="space-mb-mobile-only--50">
                             {/* image gallery bottom thumb */}
-                            <ImageGalleryBottomThumb
+                            {/* <ImageGalleryBottomThumb
                                 product={product}
                                 wishlistItem={wishlistItem}
                                 addToast={addToast}
                                 addToWishlist={addToWishlist}
                                 deleteFromWishlist={deleteFromWishlist}
-                            />
+                            /> */}
                         </Col>
 
                         <Col lg={6}>
-                            {/* demo code start */}
-                            <h1>Product DAta</h1>
-                            <h1>{productData[0]["productData"]["name"]}</h1>
-                            <h1>{productData[0]["productData"]["category"]}</h1>
-                            <h1>{productData[0]["productData"]["model"]}</h1>
-                            <h1>{productData[0]["productData"]["image"]}</h1>
-                            <h1>
-                                {productData[0]["productData"]["modelName"]}
-                            </h1>
-                            <h1>{productData[0]["productData"]["price"]}</h1>
-                            {/* <h1>{productData.category}</h1>
-                            <h1>{productData.model}</h1>
-                            <h1>{productData.image}</h1>
-                            <h1>{productData.modelName}</h1>
-                            <h1>{productData.price}</h1> */}
-                            {/* demo code end */}
+                            {product.productData.name}
+                            {/* {productData && productData.length > 0
+                                ? JSON.stringify(
+                                      productData[0]["productData"]["name"]
+                                  )
+                                : ""} */}
+                            {/* {productData[0]["productData"]["name"]} */}
+                            {/* {productData && productData.length > 0
+                                ? JSON.stringify(productData)
+                                : ""} */}
+
                             {/* product description */}
-                            <ProductDescription
-                                product={product}
-                                productPrice={productPrice}
+                            <ProductDescription product={product.productData} />
+                            {/* productPrice={productPrice}
+
                                 discountedPrice={discountedPrice}
                                 cartItems={cartItems}
                                 cartItem={cartItem}
@@ -142,14 +107,13 @@ const ProductBasic = ({
                                 addToWishlist={addToWishlist}
                                 deleteFromWishlist={deleteFromWishlist}
                                 addToCompare={addToCompare}
-                                deleteFromCompare={deleteFromCompare}
-                            />
+                                deleteFromCompare={deleteFromCompare} */}
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             {/* product description tab */}
-                            <ProductDescriptionTab product={product} />
+                            {/* <ProductDescriptionTab product={product} /> */}
                         </Col>
                     </Row>
                 </Container>
@@ -158,62 +122,16 @@ const ProductBasic = ({
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        cartItems: state.cartData,
-        wishlistItems: state.wishlistData,
-        compareItems: state.compareData,
-    };
+export default ProductBasic;
+
+ProductBasic.getInitialProps = async (ctx) => {
+    console.log(ctx.query.slug);
+    const result = await axios.post(
+        "https://desicover.herokuapp.com/search-product-by-id",
+        {
+            // privateId: "620b5208020c144f2d4bab5b",
+            privateId: ctx.query.slug,
+        }
+    );
+    return { product: result.data };
 };
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addToCart: (
-            item,
-            addToast,
-            quantityCount,
-            selectedProductColor,
-            selectedProductSize
-        ) => {
-            dispatch(
-                addToCart(
-                    item,
-                    addToast,
-                    quantityCount,
-                    selectedProductColor,
-                    selectedProductSize
-                )
-            );
-        },
-        addToWishlist: (item, addToast) => {
-            dispatch(addToWishlist(item, addToast));
-        },
-        deleteFromWishlist: (item, addToast) => {
-            dispatch(deleteFromWishlist(item, addToast));
-        },
-        addToCompare: (item, addToast) => {
-            dispatch(addToCompare(item, addToast));
-        },
-        deleteFromCompare: (item, addToast) => {
-            dispatch(deleteFromCompare(item, addToast));
-        },
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductBasic);
-
-export async function getStaticPaths() {
-    // get the paths we want to pre render based on products
-    const paths = products.map((product) => ({
-        params: { slug: product.slug },
-    }));
-
-    return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params }) {
-    // get product data based on slug
-    const product = products.filter((single) => single.slug === params.slug)[0];
-
-    return { props: { product } };
-}
