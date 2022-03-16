@@ -72,7 +72,11 @@ const ProductBasic = ({ product }) => {
                     <Row>
                         <Col lg={6} className="space-mb-mobile-only--50">
                             {/* image gallery bottom thumb */}
-                            <ImageGalleryBottomThumb product={product} />
+                            {/* <ImageGalleryBottomThumb product={product} /> */}
+                            <img
+                                src="https://images.pexels.com/photos/4065906/pexels-photo-4065906.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                alt="product descritpion image"
+                            />
                         </Col>
 
                         <Col lg={6}>

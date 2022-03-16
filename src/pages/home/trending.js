@@ -18,6 +18,7 @@ import { CreativeContent } from "../../components/HomeContent";
 import ProductGrid from "../../components/ProductThumb/ProductGrid";
 import ProductGridFour from "../../components/ProductThumb/ProductGridFour";
 import axios from "axios";
+import ProductGridList from "../../components/ProductThumb/ProductGridList";
 
 const Trending = ({ products }) => {
     const [productData, setProductData] = useState([]);
@@ -49,15 +50,31 @@ const Trending = ({ products }) => {
 
             {/* products */}
             <SectionTitleOne
-                title="New Arrivals" 
+                title="New Arrivals"
                 subtitle="Find your fav products by Desicovers "
             />
             <div className="products-wrapper space-mb--r100">
                 <Container className="wide">
                     <Row className="five-column row">
                         {/* <ProductGridFour /> */}
-                        {productData.map((data) => (
-                            <Link href={'shop/product-basic/' + data._id} key={data.productData.name}>
+                        {productData &&
+                            productData.map((product) => {
+                                return (
+                                    <>
+                                        {/* {JSON.stringify(product.productData)} */}
+                                        <ProductGridList
+                                            key={product.name}
+                                            product={product.productData}
+                                            productId={product._id}
+                                        />
+                                    </>
+                                );
+                            })}
+                        {/* {productData.map((data) => (
+                            <Link
+                                href={"shop/product-basic/" + data._id}
+                                key={data.productData.name}
+                            >
                                 <div className="element-item col-4">
                                     <div className="ecommerce_product_grid">
                                         <ul className="product_label ul_li clearfix">
@@ -79,9 +96,7 @@ const Trending = ({ products }) => {
                                         </div>
                                         <div className="item_content">
                                             <h3 className="item_title">
-                                                <a>
-                                                    {data.productData.name}
-                                                </a>
+                                                <a>{data.productData.name}</a>
                                             </h3>
                                             <span className="item_price">
                                                 <strong>
@@ -95,7 +110,7 @@ const Trending = ({ products }) => {
                                     </div>
                                 </div>
                             </Link>
-                        ))}
+                        ))} */}
                     </Row>
                     <div className="text-center">
                         {/* TODO: set the page link */}
