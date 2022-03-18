@@ -19,17 +19,19 @@ import ProductGrid from "../../components/ProductThumb/ProductGrid";
 import ProductGridFour from "../../components/ProductThumb/ProductGridFour";
 import axios from "axios";
 import ProductGridList from "../../components/ProductThumb/ProductGridList";
+import { useContext } from "react";
+import { CartContext } from "../../context/cart/cart-context";
 
 const Trending = ({ products }) => {
     const [productData, setProductData] = useState([]);
-
+    const [cart, addItemToCart, removeItemFromCart] = useContext(CartContext);
     useEffect(() => {
         async function getAllProducts() {
             const result = await axios.get(
                 "https://desicover.herokuapp.com/get-all-products"
             );
             setProductData(result.data);
-            console.log(result.data);
+            // console.log(result.data);
         }
         getAllProducts();
     }, []);
@@ -37,6 +39,7 @@ const Trending = ({ products }) => {
     return (
         <LayoutFive>
             {/* hero slider */}
+
             <HeroSliderTwo
                 sliderData={heroSliderData}
                 spaceBottomClass="space-mb--50"
@@ -70,47 +73,6 @@ const Trending = ({ products }) => {
                                     </>
                                 );
                             })}
-                        {/* {productData.map((data) => (
-                            <Link
-                                href={"shop/product-basic/" + data._id}
-                                key={data.productData.name}
-                            >
-                                <div className="element-item col-4">
-                                    <div className="ecommerce_product_grid">
-                                        <ul className="product_label ul_li clearfix">
-                                            <li data-bg-color="#93be2b">New</li>
-                                        </ul>
-                                        <div className="tab-content">
-                                            <div
-                                                id="ptab1_1"
-                                                className="tab-pane active"
-                                            >
-                                                <div className="item_image ">
-                                                    <img
-                                                        src="https://images.pexels.com/photos/4195323/pexels-photo-4195323.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=lis"
-                                                        alt="image_not_found"
-                                                        className="img-fluid"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="item_content">
-                                            <h3 className="item_title">
-                                                <a>{data.productData.name}</a>
-                                            </h3>
-                                            <span className="item_price">
-                                                <strong>
-                                                    {data.productData.price}
-                                                </strong>
-                                                <del>
-                                                    {data.productData.price}
-                                                </del>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
-                        ))} */}
                     </Row>
                     <div className="text-center">
                         {/* TODO: set the page link */}

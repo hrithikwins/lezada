@@ -4,26 +4,12 @@ import Link from "next/link";
 import { IoIosHeartEmpty, IoIosShuffle, IoIosSearch } from "react-icons/io";
 import { Tooltip } from "react-tippy";
 import ProductModal from "./ProductModal";
+import { useContext } from "react";
+import { CartContext } from "../../context/cart/cart-context";
 
-const ProductGridList = ({
-    product,
-    productId,
-
-    //   discountedPrice,
-    //   productPrice,
-    //   cartItem,
-    //   wishlistItem,
-    //   compareItem,
-    //   bottomSpace,
-    //   addToCart,
-    //   addToWishlist,
-    //   deleteFromWishlist,
-    //   addToCompare,
-    //   deleteFromCompare,
-    //   addToast,
-    //   cartItems
-}) => {
+const ProductGridList = ({ product, productId }) => {
     const [modalShow, setModalShow] = useState(false);
+    const [cart, addItemToCart, removeItemFromCart] = useContext(CartContext);
 
     return (
         <Fragment>
@@ -152,6 +138,15 @@ const ProductGridList = ({
                                 </Link>
                             </h3>
                             {/* add to cart */}
+                            <button
+                                onClick={() => {
+                                    addItemToCart(product);
+                                }}
+                            >
+                                ADD TO CART
+                            </button>
+
+                            {/*
                             {product.affiliateLink ? (
                                 <a href={product.affiliateLink} target="_blank">
                                     Buy now
@@ -177,7 +172,7 @@ const ProductGridList = ({
                                 </button>
                             ) : (
                                 <button disabled>Out of Stock</button>
-                            )}
+                            )} */}
                         </div>
                         <div className="price">
                             <span className="main-price">
