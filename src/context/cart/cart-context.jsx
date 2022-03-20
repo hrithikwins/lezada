@@ -6,12 +6,12 @@ export const CartContext = React.createContext();
 
 export const CartProvider = (props) => {
     const [cart, setCart] = useState([]);
-    const addItemToCart = (item) => {
+    const addItemToCart = (item, itemId) => {
         toast.success(item.name + " added to cart", {
             position: "bottom-center",
         });
-        setCart((currentItems) => {
-            return addItem(currentItems, item);
+        setCart((currentItems, itemId) => {
+            return addItem(itemId, currentItems, item);
         });
     };
     const removeItemFromCart = (item) =>

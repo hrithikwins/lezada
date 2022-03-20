@@ -11,7 +11,6 @@ import { CartContext } from "../../../context/cart/cart-context";
 const CartOverlay = ({
     activeStatus,
     getActiveStatus,
-    cartItems,
     deleteFromCart,
 }) => {
     let cartTotalPrice = 0;
@@ -46,9 +45,7 @@ const CartOverlay = ({
                 {/*=======  offcanvas cart content container  =======*/}
                 <div className="cart-overlay__content-container">
                     <h3 className="cart-title">Cart</h3>
-                    {cartItems.length >= 1 ? (
-                        <></>
-                    ) : cart.length > 0 ? (
+                    {cart.length > 0 ? (
                         <div className="cart-product-wrapper">
                             <div className="cart-product-container">
                                 <CustomScroll allowOuterScroll={true}>
@@ -130,7 +127,7 @@ const CartOverlay = ({
                                                             {product.quantity} x{" "}
                                                         </span>{" "}
                                                         <span className="discounted-price">
-                                                            ${discountedPrice}
+                                                            ₹{discountedPrice}
                                                         </span>
                                                     </p>
                                                 </div>
@@ -145,7 +142,7 @@ const CartOverlay = ({
                                     Subtotal:
                                 </span>
                                 <span className="subtotal-amount">
-                                    ${cartTotalPrice.toFixed(2)}
+                                    ₹{cartTotalPrice.toFixed(2)}
                                 </span>
                             </p>
                             {/*=======  cart buttons  =======*/}
@@ -168,7 +165,7 @@ const CartOverlay = ({
                             </div>
                             {/*=======  free shipping text  =======*/}
                             <p className="free-shipping-text">
-                                Free Shipping on All Orders Over $100!
+                                Free Shipping on All Orders Over ₹1000!
                             </p>
                             {/* // JSON.stringify(cart) */}
                         </div>
@@ -181,18 +178,18 @@ const CartOverlay = ({
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        cartItems: state.cartData,
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         cartItems: state.cartData,
+//     };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        deleteFromCart: (item, addToast) => {
-            dispatch(deleteFromCart(item, addToast));
-        },
-    };
-};
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         deleteFromCart: (item, addToast) => {
+//             dispatch(deleteFromCart(item, addToast));
+//         },
+//     };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartOverlay);
+export default CartOverlay;
