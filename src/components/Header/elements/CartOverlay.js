@@ -20,6 +20,7 @@ const CartOverlay = ({
 
     return (
         <div className={`cart-overlay ${activeStatus ? "active" : ""}`}>
+            {/* this is a cart overlay */}
             <div
                 className="cart-overlay__close"
                 onClick={() => {
