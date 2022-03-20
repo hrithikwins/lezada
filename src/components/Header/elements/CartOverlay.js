@@ -47,10 +47,12 @@ const CartOverlay = ({
                 <div className="cart-overlay__content-container">
                     <h3 className="cart-title">Cart</h3>
                     {cartItems.length >= 1 ? (
+                        <></>
+                    ) : cart.length > 0 ? (
                         <div className="cart-product-wrapper">
                             <div className="cart-product-container">
                                 <CustomScroll allowOuterScroll={true}>
-                                    {cartItems.map((product, i) => {
+                                    {cart.map((product, i) => {
                                         const discountedPrice =
                                             getDiscountPrice(
                                                 product.price,
@@ -85,10 +87,7 @@ const CartOverlay = ({
                                                         <a>
                                                             <img
                                                                 src={
-                                                                    process.env
-                                                                        .PUBLIC_URL +
-                                                                    product
-                                                                        .thumbImage[0]
+                                                                    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcovermobi.com%2Fwp-content%2Fuploads%2F2020%2F10%2FIPHE6D115.jpg&f=1&nofb=1"
                                                                 }
                                                                 className="img-fluid"
                                                                 alt=""
@@ -171,9 +170,8 @@ const CartOverlay = ({
                             <p className="free-shipping-text">
                                 Free Shipping on All Orders Over $100!
                             </p>
+                            {/* // JSON.stringify(cart) */}
                         </div>
-                    ) : cart.length > 0 ? (
-                        JSON.stringify(cart)
                     ) : (
                         "no items"
                     )}

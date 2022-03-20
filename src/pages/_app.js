@@ -12,45 +12,50 @@ import "../assets/scss/styles.scss";
 import Preloader from "../components/Preloader";
 import GlobalProvider from "../context";
 
-class MyApp extends App {
-    constructor(props) {
-        super(props);
-        this.persistor = persistStore(props.reduxStore);
-        props.reduxStore.dispatch(fetchProducts(products));
-    }
+  import { ToastContainer, toast } from "react-toastify";
+  import "react-toastify/dist/ReactToastify.css";
 
-    render() {
-        const { Component, pageProps, reduxStore } = this.props;
+  class MyApp extends App {
+      constructor(props) {
+          super(props);
+          this.persistor = persistStore(props.reduxStore);
+          props.reduxStore.dispatch(fetchProducts(products));
+      }
 
-        return (
-            <Fragment>
-                <Head>
-                    <title>Desicovers</title>
-                    <link
-                        rel="icon"
-                        href={process.env.PUBLIC_URL + "/favicon.ico"}
-                    />
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-                        rel="stylesheet"
-                    ></link>
-                </Head>
-                <ToastProvider placement="bottom-left">
-                    +
-                    <Provider store={reduxStore}>
-                        <PersistGate
-                            loading={<Preloader />}
-                            persistor={this.persistor}
-                        >
-                            <GlobalProvider>
-                                <Component {...pageProps} />
-                            </GlobalProvider>
-                        </PersistGate>
-                    </Provider>
-                </ToastProvider>
-            </Fragment>
-        );
-    }
-}
+      render() {
+          const { Component, pageProps, reduxStore } = this.props;
+
+          return (
+              <Fragment>
+                  <Head>
+                      <title>Desicovers</title>
+                      <link
+                          rel="icon"
+                          href={process.env.PUBLIC_URL + "/favicon.ico"}
+                      />
+                      <link
+                          href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+                          rel="stylesheet"
+                      ></link>
+                  </Head>
+                  <ToastContainer />
+
+                  <ToastProvider placement="bottom-left">
+                      {/* + */}
+                      <Provider store={reduxStore}>
+                          <PersistGate
+                              loading={<Preloader />}
+                              persistor={this.persistor}
+                          >
+                              <GlobalProvider>
+                                  <Component {...pageProps} />
+                              </GlobalProvider>
+                          </PersistGate>
+                      </Provider>
+                  </ToastProvider>
+              </Fragment>
+          );
+      }
+  }
 
 export default withReduxStore(MyApp);

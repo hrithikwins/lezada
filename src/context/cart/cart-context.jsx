@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { addItem, removeItem } from "./cart-utils";
+import { toast } from "react-toastify";
 
 export const CartContext = React.createContext();
 
 export const CartProvider = (props) => {
     const [cart, setCart] = useState([]);
-    const addItemToCart = (item) =>
+    const addItemToCart = (item) => {
+        toast.success(item.name + " added to cart", {
+            position: "bottom-center",
+        });
         setCart((currentItems) => {
             return addItem(currentItems, item);
         });
+    };
     const removeItemFromCart = (item) =>
         setCart((currentItems) => {
             console.log("Remove item called with " + item);

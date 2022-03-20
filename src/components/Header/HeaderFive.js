@@ -61,7 +61,7 @@ const HeaderFive = ({ aboutOverlay, cartItems, wishlistItems }) => {
                   <Container className="wide">
                       <div className="header-top">
                           <div className="header-top__left">
-                              <div className="language-change change-dropdown">
+                              {/* <div className="language-change change-dropdown">
                                   <span>English</span> <IoIosArrowDown />
                                   <ul>
                                       <li>
@@ -71,9 +71,9 @@ const HeaderFive = ({ aboutOverlay, cartItems, wishlistItems }) => {
                                           <button>Deustch</button>
                                       </li>
                                   </ul>
-                              </div>
-                              <span className="header-separator">|</span>
-                              <div className="currency-change change-dropdown">
+                              </div> */}
+                              {/* <span className="header-separator">|</span> */}
+                              {/* <div className="currency-change change-dropdown">
                                   <span>USD</span> <IoIosArrowDown />
                                   <ul>
                                       <li>
@@ -83,8 +83,8 @@ const HeaderFive = ({ aboutOverlay, cartItems, wishlistItems }) => {
                                           <button>EUR</button>
                                       </li>
                                   </ul>
-                              </div>
-                              <span className="header-separator">|</span>
+                              </div> */}
+                              {/* <span className="header-separator">|</span> */}
                               <div className="order-online-text">
                                   Order Online Call
                                   <span className="number">
