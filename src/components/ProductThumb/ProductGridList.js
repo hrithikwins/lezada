@@ -140,7 +140,7 @@ const ProductGridList = ({ product, productId }) => {
                             {/* add to cart */}
                             <button
                                 onClick={() => {
-                                    addItemToCart(product);
+                                    addItemToCart(product, productId);
                                 }}
                             >
                                 ADD TO CART
