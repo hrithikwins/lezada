@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Col } from "react-bootstrap";
 import Link from "next/link";
 import { IoIosHeartEmpty, IoIosShuffle, IoIosSearch } from "react-icons/io";
@@ -10,7 +10,11 @@ import { CartContext } from "../../context/cart/cart-context";
 const ProductGridList = ({ product, productId }) => {
     const [modalShow, setModalShow] = useState(false);
     const [cart, addItemToCart, removeItemFromCart] = useContext(CartContext);
+    const [isItemInCart, setIsItemInCart] = useState(false);
 
+    useEffect(() => {
+        cart.find((cartItem) => cartItem.itemId == productId);
+    }, [cart]);
     return (
         <Fragment>
             <Col lg={3} md={6} className={""}>
@@ -140,7 +144,9 @@ const ProductGridList = ({ product, productId }) => {
                             {/* add to cart */}
                             <button
                                 onClick={() => {
-                                    addItemToCart(product, productId);
+                                    //    ?
+                                    addItemToCart(productId, product);
+                                    // : "";
                                 }}
                             >
                                 ADD TO CART

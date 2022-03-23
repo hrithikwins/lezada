@@ -51,14 +51,16 @@ const CartOverlay = ({
                             <div className="cart-product-container">
                                 <CustomScroll allowOuterScroll={true}>
                                     {cart.map((product, i) => {
-                                        const discountedPrice =
+                                        const discountedPrice = Number(
                                             getDiscountPrice(
                                                 product.price,
                                                 product.discount
-                                            ).toFixed(2);
+                                            )
+                                        ).toFixed(2);
 
                                         cartTotalPrice +=
-                                            discountedPrice * product.quantity;
+                                            discountedPrice *
+                                            product.productQuantity;
 
                                         return (
                                             <div
@@ -125,7 +127,10 @@ const CartOverlay = ({
                                                     )}
                                                     <p>
                                                         <span className="cart-count">
-                                                            {product.quantity} x{" "}
+                                                            {
+                                                                product.productQuantity
+                                                            }{" "}
+                                                            x{" "}
                                                         </span>{" "}
                                                         <span className="discounted-price">
                                                             ₹{discountedPrice}

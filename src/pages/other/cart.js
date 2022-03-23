@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
@@ -26,6 +26,7 @@ const Cart = ({
     const [quantityCount] = useState(1);
     const { addToast } = useToasts();
     let cartTotalPrice = 0;
+    const [cart, addItemToCart, removeItemFromCart] = useContext(CartContext);
 
     useEffect(() => {
         document.querySelector("body").classList.remove("overflow-hidden");
@@ -311,6 +312,7 @@ const Cart = ({
                                     <div className="item-empty-area__text">
                                         <p className="space-mb--30">
                                             No items found in cart
+                                            {JSON.stringify(cart)}
                                         </p>
                                         <Link
                                             href="/shop/left-sidebar"
@@ -334,27 +336,4 @@ const Cart = ({
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        cartItems: state.cartData,
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addToCart: (item, addToast, quantityCount) => {
-            dispatch(addToCart(item, addToast, quantityCount));
-        },
-        decreaseQuantity: (item, addToast) => {
-            dispatch(decreaseQuantity(item, addToast));
-        },
-        deleteFromCart: (item, addToast) => {
-            dispatch(deleteFromCart(item, addToast));
-        },
-        deleteAllFromCart: (addToast) => {
-            dispatch(deleteAllFromCart(addToast));
-        },
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default Cart;
